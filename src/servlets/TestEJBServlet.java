@@ -13,7 +13,6 @@ import java.io.PrintWriter;
 
 //COMPLETE: import the local interface of the EJB
 
-import ejbs.*;
 
 /**
  * Servlet implementation class TestEJBServlet
@@ -24,13 +23,12 @@ public class TestEJBServlet extends HttpServlet {
      
 	// COMPLETE: Inject the EJB
 	@EJB
-	private es.uc3m.tiw.HelloWorldBeanLocal _myejb;
+	private es.uc3m.tiw.HelloWorldBeanLocal myEjb;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public TestEJBServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -44,10 +42,11 @@ public class TestEJBServlet extends HttpServlet {
 		String sName = request.getParameter("name");
 		
 		//if (// ... COMPLETE check if the EJB is null //) {
-		if (. . .) {
+		if (myEjb == null) {
 			out.println("<p>Could not locate EJB!</p>");
 		} else {
 		//	out.println("<p>" + // ... COMPLETE call the method of the EJB passing the name introduced //+ "</p>");
+			out.println("<p>" +myEjb.retu2rnPhrase(sName)+ "</p>");
 		}
 		
 	}
